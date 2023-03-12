@@ -1,0 +1,112 @@
+<style>
+  .coverage {
+    width: 90%;
+    text-align: center;
+    margin: 50px auto;
+    background: aliceblue;
+    padding: 20px;
+  }
+  .coverage h3 {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0;
+    color: #0e1b4d;
+  }
+  .coverage p {
+    font-size: 20px;
+  }
+  .steps {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .step {
+    padding: 10px;
+    background: #0e1b4d;
+    color: white;
+    width: 250px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: all 0.1s ease-in-out;
+  }
+  .step:hover {
+    box-shadow: inset 0 0 10px black;
+  }
+  span.arw {
+    color: #0e1b4d;
+    font-size: 100px;
+  }
+  .step h4 {
+    font-size: 30px;
+    margin: 0;
+    font-weight: bold;
+    color: white;
+  }
+  p.eligible {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  @media only screen and (max-width: 750px) {
+    .steps {
+      flex-direction: column;
+    }
+    span.arw {
+      transform: rotate(90deg);
+    }
+    .step {
+      padding: 10px;
+      width: 150px;
+      height: 200px;
+    }
+    span.arw {
+      font-size: 50px;
+    }
+  }
+</style>
+
+<div class="coverage">
+  <p class="eligible">
+    Everyone up to age 85 is eligible. No Medical Exams, Blood Tests, or Underwriting just answer a 3 Health Questions
+    online to get Covered Today.
+  </p>
+  <h3>Get coverage in 3 simple steps</h3>
+  <p>Our process is 100% online and takes as little as 10 minutes.</p>
+  {% render 'ns' %}
+  {% comment %} <div class="steps">
+  <div class="step">
+  <h4>Step 1</h4>
+  <p>Select A Membership</p>
+  </div>
+  <span class="arw"> ➤</span>
+  <div class="step">
+  <h4>Step 2</h4>
+  <p>Complete Application Questions</p>
+  </div>
+  <span class="arw"> ➤</span>
+  <div class="step">
+  <h4>Step 3</h4>
+  <p>Make Your Payment</p>
+  </div>
+  </div> {% endcomment %}<small>
+    To determine your qualification for this non-government affiliated program, you may be contacted by a Advisor to
+    verify your enrollment.
+  </small>
+</div>
+
+{% schema %}
+  {
+    "name": "Coverage",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Coverage"
+      }
+    ]
+  }
+{% endschema %}

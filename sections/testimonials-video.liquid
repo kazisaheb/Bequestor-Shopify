@@ -1,0 +1,58 @@
+<h3 class="center">Video Testimonials & Endorsements</h3>
+
+<div class="testimonials">
+  {% for block in section.blocks %}
+    <div class="testimonial">
+      <span class="t_info">
+        <img src="{{block.settings.profile_img | img_url: 'medium'}}" alt="">
+        <span>
+          {{ block.settings.desig }}
+        </span>
+      </span>
+
+      <iframe
+        style="max-width: calc(100vh);"
+        width="100%"
+        height="auto"
+        src="https://player.vimeo.com/video/{{block.settings.v_id}}"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen=""></iframe>
+
+    </div>
+  {% endfor %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Video Testimonials",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "profile_img",
+            "label": "Profile Picture"
+          }, {
+            "type": "richtext",
+            "id": "desig",
+            "label": "Designation:"
+          }, {
+            "type": "text",
+            "id": "v_id",
+            "label": "Vimeo ID:"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Video Testimonials"
+      }
+    ]
+  }
+{% endschema %}

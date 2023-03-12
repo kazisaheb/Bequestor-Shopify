@@ -1,0 +1,139 @@
+<style>
+  .head_top {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+  }
+  @media only screen and (max-width: 650px) {
+    .head_top {
+      flex-direction: column;
+    }
+  }
+  .top_logo img {
+    width: 115px;
+    height: 80px;
+  }
+  .slogan,
+  .slogan h1,
+  .slogan p {
+    text-align: center;
+    margin: 0;
+    color: #FFD700;
+    font-weight: bold;
+    font-family: cursive;
+  }
+  .phone iframe {
+    margin: -10px 0 -40px;
+  }
+  .phone a {
+    text-decoration: none;
+    color: white;
+  }
+  .phone a:hover {
+    color: #ffd700;
+  }
+</style>
+
+<div class="head_top">
+  <div class="top_logo">
+    <a href="/">
+      <img src="https://cdn.shopify.com/s/files/1/0707/8894/0075/files/bequest_master_logo___1_-removebg-preview.png?v=1673587645" alt="{{shop.name}}"></a>
+  </div>
+
+  <div class="slogan">
+    <h1>Welcome Our BeQuest</h1>
+    <marquee
+      behavior=""
+      direction=""
+      style="max-width: 400px">
+      <p>Leaving a Legacy for Your Grandchildren.
+        <span style="opacity:0">
+          ---
+          -
+          -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              -
+                              ---</span>
+        Building a Legacy for Your Community</p>
+    </marquee>
+  </div>
+  <div class="phone">
+    <p>
+      <a href="tel:{{ section.settings.phone }}">
+        <b>☎ {{ section.settings.phone }}</b>
+      </a>
+    </p>
+
+    <iframe
+      src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fbequestor.myshopify.com%2F&width=138&layout=button&action=like&size=large&share=true&height=65&appId"
+      width="138"
+      height="65"
+      style="border:none;overflow:hidden"
+      scrolling="no"
+      frameborder="0"
+      allowfullscreen="true"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Top Head",
+    "settings": [
+      {
+        "type": "text",
+        "id": "phone",
+        "label": "Phone no."
+      }
+    ]
+  }
+{% endschema %}

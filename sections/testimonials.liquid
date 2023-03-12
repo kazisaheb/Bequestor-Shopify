@@ -1,0 +1,152 @@
+{% comment %} <style>
+.testimonials {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
+gap: 30px;
+}
+.testimonial {
+margin: 0 auto auto;
+max-width: 350px;
+padding: 15px;
+height: auto;
+box-shadow: 0 0 7px gray;
+border-radius: 0 30px;
+}
+.t_info {
+display: flex;
+gap: 10px;
+margin-bottom: 15px;
+}
+.t_info img {
+width: 150px;
+height: 100px;
+}
+h3.center {
+font-size: x-large;
+font-weight: bold;
+color: gray;
+}
+span h3 {
+font-weight: bold;
+margin: 0;
+}
+.testimonial p {
+margin: 0;
+}
+</style> {% endcomment %}
+
+<h2 class="center">Why I Became a BeQuestor</h2>
+<h3 class="center">Testimonials & Endorsements</h3>
+
+<div class="testimonials">
+  {% for block in section.blocks %}
+    <div class="testimonial">
+      <span class="t_info">
+        <img src="{{block.settings.profile_img | img_url: 'medium'}}" alt="">
+        <span>
+          <h3>{{ block.settings.name }}</h3>
+          {{ block.settings.desig }}
+        </span>
+      </span>
+
+
+      {% if block.settings.t_type == 't_video' %}
+
+        <iframe
+          width="100%"
+          height="auto"
+          src="https://player.vimeo.com/video/{{block.settings.v_id}}"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen=""></iframe>
+
+
+        {% comment %} <iframe
+        allow="fullscreen"
+        width="100%"
+        height="auto"
+        src="https://www.youtube.com/embed/{{block.settings.v_id}}"></iframe> {% endcomment %}
+
+      {% elsif block.settings.t_type == 't_audio' %}
+
+        <audio controls="controls" src="{{block.settings.a_link}}">
+          Your browser does not support the HTML5 audio element.
+        </audio>
+
+      {% elsif block.settings.t_type == 't_text' %}
+
+        {{ block.settings.text_t }}
+
+      {% endif %}
+
+    </div>
+  {% endfor %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Testimonials",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "profile_img",
+            "label": "Profile Picture"
+          },
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Name:"
+          },
+          {
+            "type": "richtext",
+            "id": "desig",
+            "label": "Designation:"
+          },
+          {
+            "type": "select",
+            "id": "t_type",
+            "label": "Type",
+            "options": [
+              {
+                "value": "t_video",
+                "label": "Video"
+              }, {
+                "value": "t_audio",
+                "label": "Audio"
+              }, {
+                "value": "t_text",
+                "label": "Text"
+              }
+            ],
+            "default": "t_text"
+          }, {
+            "type": "text",
+            "id": "v_id",
+            "label": "Video ID"
+          }, {
+            "type": "text",
+            "id": "a_link",
+            "label": "Audio Link"
+          }, {
+            "type": "richtext",
+            "id": "text_t",
+            "label": "Text"
+          }
+
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonials"
+      }
+    ]
+  }
+{% endschema %}

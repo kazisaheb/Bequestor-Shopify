@@ -1,0 +1,51 @@
+<h3 class="center">Text Testimonials & Endorsements</h3>
+
+<div class="testimonials">
+  {% for block in section.blocks %}
+    <div class="testimonial">
+      <span class="t_info">
+        <img src="{{block.settings.profile_img | img_url: 'medium'}}" alt="">
+        <span>
+          {{ block.settings.desig }}
+        </span>
+      </span>
+
+      {{ block.settings.text_t }}
+
+    </div>
+  {% endfor %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Text Testimonials",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "profile_img",
+            "label": "Profile Picture"
+          }, {
+            "type": "richtext",
+            "id": "desig",
+            "label": "Designation:"
+          }, {
+            "type": "richtext",
+            "id": "text_t",
+            "label": "Audio Link:"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Text Testimonials"
+      }
+    ]
+  }
+{% endschema %}

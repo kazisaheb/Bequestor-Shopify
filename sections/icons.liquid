@@ -1,0 +1,90 @@
+<style>
+
+  .icons {
+    max-width: 93%;
+    display: flex;
+    gap: 15px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .icons img {
+    width: 200px;
+  }
+
+  .icons .icon {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: center;
+    border: 1px solid #cacaca;
+    padding: 10px 10px 0;
+    height: 300px;
+    transition: all 0.1s ease-in-out;
+  }
+  .icon p {
+    max-height: 0;
+    transition: max-height 0.5s;
+    overflow: hidden;
+  }
+  .icon:hover > p {
+    max-height: 1000px;
+  }
+  .icon:hover {
+    height: auto;
+    box-shadow: inset 0 0 5px gray;
+  }
+  .icon h3 {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: gray;
+    margin: 0;
+  }
+</style>
+<div class="icons">
+  {% for block in section.blocks %}
+
+    <div class="icon">
+      <img src="{{block.settings.icon | img_url: 'medium'}}" alt="{{ block.settings.btn_txt }}">
+      {{ block.settings.p_text }}
+      <h3>{{ block.settings.btn_txt }}</h3>
+    </div>
+
+  {% endfor %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Icons",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Option",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          }, {
+            "type": "richtext",
+            "id": "p_text",
+            "label": "Text"
+          }, {
+            "type": "text",
+            "id": "btn_txt",
+            "label": "Button Text",
+            "default": "Title Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Icons"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,53 @@
+<h3 class="center">Audio Testimonials & Endorsements</h3>
+
+<div class="testimonials">
+  {% for block in section.blocks %}
+    <div class="testimonial">
+      <span class="t_info">
+        <img src="{{block.settings.profile_img | img_url: 'medium'}}" alt="">
+        <span>
+          {{ block.settings.desig }}
+        </span>
+      </span>
+
+      <audio controls="controls" src="{{block.settings.a_link}}">
+        Your browser does not support the HTML5 audio element.
+      </audio>
+
+    </div>
+  {% endfor %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Audio Testimonials",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "profile_img",
+            "label": "Profile Picture"
+          }, {
+            "type": "richtext",
+            "id": "desig",
+            "label": "Designation:"
+          }, {
+            "type": "text",
+            "id": "a_link",
+            "label": "Audio Link:"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Audio Testimonials"
+      }
+    ]
+  }
+{% endschema %}

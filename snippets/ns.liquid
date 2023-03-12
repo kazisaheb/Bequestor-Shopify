@@ -1,0 +1,53 @@
+<style>
+  .ns {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 950px;
+    margin: 20px auto;
+  }
+  .nss {
+    border: 1px solid;
+    width: 300px;
+    border-radius: 0 0 0 30px;
+  }
+  .nss h6 {
+    font-size: 30px;
+    margin: 0;
+    background: #0e1b4d;
+    color: white;
+  }
+  .nss img {
+    width: 150px;
+    border: 10px solid #0e1b4d;
+    border-radius: 100px;
+    margin-top: 30px;
+    border-bottom: 12px solid #17ab13;
+    padding: 5px;
+  }
+  .nss p {
+    margin-top: 0;
+  }
+</style>
+<div class="ns">
+  <div class="nss">
+    <h6>Step 1</h6>
+    <img src="https://cdn-icons-png.flaticon.com/512/3659/3659903.png" alt="">
+    <br>{% render 'thik' %}
+    <p>Select A Membership</p>
+  </div>
+  <div class="nss">
+    <h6>Step 2</h6>
+    <img src="https://cdn-icons-png.flaticon.com/512/5726/5726558.png" alt="">
+    <br>{% render 'thik' %}
+    <p>Complete Application Questions</p>
+  </div>
+  <div class="nss">
+    <h6>Step 3</h6>
+    <img src="https://cdn-icons-png.flaticon.com/512/1019/1019607.png" alt="">
+    <br>{% render 'thik' %}
+    <p>Make Your Payment</p>
+  </div>
+
+</div>
